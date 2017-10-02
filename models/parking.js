@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
 const parkingSchema = mongoose.Schema({
@@ -7,6 +6,7 @@ const parkingSchema = mongoose.Schema({
         type: String,
         required: true
       },
+      //quantidade de veiculo que cabe la seu jumento!!!
       size:{
           type:Number,
           required: true
