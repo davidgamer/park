@@ -3,7 +3,14 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
 const entrySchema = mongoose.Schema({
-    
+
+    name:{
+        type: String,
+        required: true
+      },
+
+    created:{ type: Date, default: Date.now },
+    modified:{ type: Date, default: Date.now }
 });
 
 
