@@ -6,3 +6,6 @@ const config = require('../config/database');
 const ticketSchema = mongoose.Schema({
     
 });
+
+
+const Ticket = module.exports = mongoose.model('Ticket', ticketSchema);
