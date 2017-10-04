@@ -6,12 +6,11 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 
-// Connect To Database
-
 
 const app = express();
 
 const users = require('./routes/users');
+const parkings = require('./routes/parkings');
 
 // Port Number
 const port = process.env.PORT || 3000;
@@ -32,6 +31,8 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
+
+app.use('/parking', parkings);
 
 // Index Route
 app.get('/', (req, res) => {
