@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const config = require('../config/database');
+const user = require('../models/user');
 
 const parkingSchema = mongoose.Schema({
     name:{
@@ -16,7 +17,7 @@ const parkingSchema = mongoose.Schema({
         type:Number,
         required: true
       },
-      users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+      user: [user],
       created:{ type: Date, default: Date.now },
       modified:{ type: Date, default: Date.now }
 });
@@ -25,8 +26,13 @@ const parkingSchema = mongoose.Schema({
 const Parking = module.exports = mongoose.model('Parking',parkingSchema);
 
 module.exports.addParking = function(newParking, callback){
+
     
     if(err) throw err;
+        console.log("Estacionamento Salvo!!!");
+        console.log("\n\n"); 
         newParking.save(callback);
+        console.log("\n\n");
+        console.log("Estacionamento Salvo!!!");
     
 }

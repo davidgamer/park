@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
 const config = require('../config/database');
-
+const Parking = require('../models/parking');
 // User Schema
 const UserSchema = mongoose.Schema({
   name: {
