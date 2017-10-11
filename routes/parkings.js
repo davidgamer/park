@@ -7,8 +7,8 @@ const config = require('../config/database');
 const User = require('../models/user');
 const Parking = require('../models/parking');
 
-router.post('/register', (req, res, next) => {
- // console.log(newParking + "Req variavel");
+router.post('/rg', (req, res, next) => {
+ 
 let newParking = new Parking({
     name: req.body.name,
     size: req.body.size,
@@ -16,13 +16,15 @@ let newParking = new Parking({
     users: req.body.users
   });
   console.log(newParking);
- Parking.addParking(newParking, (err, user) => {
-    if(err){
-      res.json({success: false, msg:'Falha ao registrar usuario'});
+  newParking.save(function(err, book) {
+    if(err) {
+      res.send('error saving book');
     } else {
-      res.json({success: true, msg:'Usuario registrado'});
+      console.log(book);
+      res.send(book);
     }
   });
-
 });
+
+
 module.exports = router;
