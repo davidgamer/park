@@ -13,7 +13,7 @@ let newParking = new Parking({
     name: req.body.name,
     size: req.body.size,
     entracenumber : req.body.entracenumber,
-    users: req.body.users
+    user: req.body.user
   });
   console.log(newParking);
   newParking.save(function(err, book) {

@@ -4,15 +4,17 @@ var retry = null;
 const secret = 'your secret';
 const User =  require('../models/user');
 
+mongoose.Promise = global.Promise;
 
 const config = module.exports = {  
-  
   database: dburl,
-  secret: 'yoursecret'
+  secret: 'yoursecret',
    //database: 'mongodb://localhost:27017/estaciona',    //desenvolvimento
 }
 
-mongoose.connect(config.database);
+mongoose.connect(config.database,{
+  useMongoClient: true
+}).then(() => console.log('conectato promise')).catch(()=> console.log('erro acontecido'));
 
 
 mongoose.connection.on('connected', function() {
