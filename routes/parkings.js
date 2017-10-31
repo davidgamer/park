@@ -18,7 +18,7 @@ let newParking = new Parking({
   console.log(newParking);
   newParking.save(function(err, book) {
     if(err) {
-      res.send('error saving book');
+      res.send(err);
     } else {
       console.log(book);
       res.send(book);

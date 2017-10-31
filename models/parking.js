@@ -4,7 +4,7 @@ const config = require('../config/database');
 const user = require('../models/user');
 
 const parkingSchema = mongoose.Schema({ 
-    _id     : Schema.Types.ObjectId,
+   // _id     : Schema.Types.ObjectId,
     name:{
         type: String,
         required: true
