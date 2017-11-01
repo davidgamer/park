@@ -4,7 +4,7 @@ const config = require('../config/database');
 const user = require('../models/user');
 
 const parkingSchema = mongoose.Schema({ 
-   // _id     : Schema.Types.ObjectId,
+  
     name:{
         type: String,
         required: true
@@ -19,10 +19,10 @@ const parkingSchema = mongoose.Schema({
         required: true
       },
       user:[{ type: Schema.Types.ObjectId, ref: "User"}],
+
       created:{ type: Date, default: Date.now },
       modified:{ type: Date, default: Date.now }
 });
-
 
 const Parking = module.exports = mongoose.model('Parking',parkingSchema);
 
