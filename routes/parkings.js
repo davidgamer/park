@@ -15,15 +15,7 @@ let newParking = {
     entracenumber : req.body.entracenumber,
     user: req.body.user
   }
-/*
-  newParking.save(function(err, park) {
-    if(err) {
-      res.send(err);
-    } else {
-      console.log(park);
-     
-    }
-  });*/
+
   new Parking(newParking)
   .save()
   .then (Parking => {
@@ -33,5 +25,36 @@ let newParking = {
 
 });
 
+router.get('/edit/:id', (req, res) => {
+  Parking.findOne({
+    _id:req.params.id
+  })
+  .then(Parking => {
+    res.send(Parking);
+  });
+});
+
+router.get('/all', (req, res) => {
+  Parking.find({})
+    .then(Parking => { 
+       res.send(Parking);
+    });
+});
+
+
 
 module.exports = router;
+
+
+
+/*
+  newParking.save(function(err, park) {
+    if(err) {
+      res.send(err);
+    } else {
+      console.log(park);
+     
+    }
+  });*/
+
+
