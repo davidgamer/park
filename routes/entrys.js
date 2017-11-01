@@ -12,7 +12,7 @@ router.post('/rg', (req, res, next) => {
  
 let newEntry = {
     name: req.body.name,
-    user: req.body.user
+    parking: req.body.parking
   }
 
   new Parking(newParking)
