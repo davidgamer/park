@@ -41,6 +41,31 @@ router.get('/all', (req, res) => {
     });
 });
 
+router.put('/edit/:id', (req, res) => {
+  Parking.findOne({
+    _id: req.params.id
+  })
+  .then(Parking => {
+    Parking.name =  req.body.name;
+    Parking.size =  req.body.size;
+    Parking.entracenumber = req.body.entracenumber;
+  
+    Parking.save()
+      .then(Parking => {
+      res.send(Parking);
+      });
+  });
+});
+
+// Delete Idea
+router.delete('/:id', (req, res) => {
+  Parking.remove({_id: req.params.id})
+    .then(() => {
+     // res.send(Parking);
+      console.log("rodou!!");
+    });
+});
+
 
 
 module.exports = router;

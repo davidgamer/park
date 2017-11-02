@@ -17,43 +17,27 @@ let newEntry = {
 
   new Parking(newParking)
   .save()
-  .then (Parking => {
-    console.log(newParking);
-    res.send(newParking);
+  .then (Entrys => {
+    console.log(newEntry);
+    res.send(newEntry);
   });
 
 });
 
 router.get('/edit/:id', (req, res) => {
-  Parking.findOne({
+  Entrys.findOne({
     _id:req.params.id
   })
-  .then(Parking => {
-    res.send(Parking);
+  .then(Entrys => {
+    res.send(Entrys);
   });
 });
 
 router.get('/all', (req, res) => {
-  Parking.find({})
+  Entrys.find({})
     .then(Parking => { 
-       res.send(Parking);
+       res.send(Entrys);
     });
 });
 
-
-
 module.exports = router;
-
-
-
-/*
-  newParking.save(function(err, park) {
-    if(err) {
-      res.send(err);
-    } else {
-      console.log(park);
-     
-    }
-  });*/
-
-
