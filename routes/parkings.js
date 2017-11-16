@@ -66,20 +66,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-
-
 module.exports = router;
-
-
-
-/*
-  newParking.save(function(err, park) {
-    if(err) {
-      res.send(err);
-    } else {
-      console.log(park);
-     
-    }
-  });*/
-
-
