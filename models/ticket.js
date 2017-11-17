@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('../config/database');
 const Entry = require('../models/entry');
+const Schema = mongoose.Schema;
 
 
 const ticketSchema = mongoose.Schema({
@@ -19,11 +20,10 @@ const ticketSchema = mongoose.Schema({
             unique: true
          },
          
-    parking:[{ type: Schema.Types.ObjectId, ref: "Entry"}],
+    entry:[{ type: Schema.Types.ObjectId, ref: "Entry"}],
+
     created:{ type: Date, default: Date.now },
     modified:{ type: Date, default: Date.now }
     
 });
-
-
 const Ticket = module.exports = mongoose.model('Ticket', ticketSchema);

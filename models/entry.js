@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('../config/database');
 const Parking = require('../models/parking');
+const Schema = mongoose.Schema;
 
 
 const entrySchema = mongoose.Schema({

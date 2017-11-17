@@ -26,15 +26,3 @@ const parkingSchema = mongoose.Schema({
 
 const Parking = module.exports = mongoose.model('Parking',parkingSchema);
 
-module.exports.addParking = function(newParking, callback){
-
-    
-    if(err) throw err;
-    
-        console.log("Estacionamento Salvo!!!");
-        console.log("\n\n"); 
-            newParking.save(callback + "\n\n");
-        console.log();
-        console.log("Estacionamento Salvo!!!");
-    
-}

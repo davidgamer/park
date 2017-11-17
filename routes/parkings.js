@@ -7,7 +7,7 @@ const config = require('../config/database');
 const User = require('../models/user');
 const Parking = require('../models/parking');
 
-router.post('/rg', (req, res, next) => {
+router.post('/new', (req, res, next) => {
  
 let newParking = {
     name: req.body.name,
@@ -25,15 +25,6 @@ let newParking = {
 
 });
 
-router.get('/edit/:id', (req, res) => {
-  Parking.findOne({
-    _id:req.params.id
-  })
-  .then(Parking => {
-    res.send(Parking);
-  });
-});
-
 router.get('/all', (req, res) => {
   Parking.find({})
     .then(Parking => { 
@@ -41,18 +32,48 @@ router.get('/all', (req, res) => {
     });
 });
 
-router.put('/edit/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
   Parking.findOne({
-    _id: req.params.id
+    _id:req.params.id
   })
-  .then(Parking => {
-    Parking.name =  req.body.name;
-    Parking.size =  req.body.size;
-    Parking.entracenumber = req.body.entracenumber;
-  
+  .then( Parking => {
+ 
+    res.send('/edit/',{
+      Parking:Parking  
+         
+    }).catch(function (err) {
+      // console.log(err);
+       console.log(req.params);
+      
+     });
+     console.log(Parking.findOne);
+  });
+});
+
+router.put('/edit/:id', (req, res) => {
+
+  Parking.findOne({
+
+      _id: req.params.id
+
+  })
+
+  .then( Parking => {
+
+    Parking.name = req.params.name;
+    Parking.size = req.params.size;
+    Parking.entracenumber = req.params.entracenumber;
+
     Parking.save()
-      .then(Parking => {
-      res.send(Parking);
+      .then( Parking => {
+
+        res.send(Parking);
+
+
+      }).catch(function (err) {
+       // console.log(err);
+        console.log(req.params);
+        console.log(Parking.findOne);
       });
   });
 });
@@ -62,7 +83,7 @@ router.delete('/:id', (req, res) => {
   Parking.remove({_id: req.params.id})
     .then(() => {
      // res.send(Parking);
-      console.log("rodou!!");
+      console.log("deletado!!");
     });
 });
 
