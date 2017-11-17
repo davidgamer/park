@@ -38,7 +38,7 @@ export class NovoComponent implements OnInit {
     this.parkingService.saveParking(parking).subscribe(data => {
       if (data.success) {
         this.flashMessage.show('Cadatrado', {cssClass: 'alert-success', timeout: 3000});
-       // this.router.navigate(['/entradas']);
+        this.router.navigate(['/dashboard']);
       } else {
         this.flashMessage.show('algo deu errado', {cssClass: 'alert-danger', timeout: 3000});
        // this.router.navigate(['/register']);

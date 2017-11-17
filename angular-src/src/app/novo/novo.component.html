@@ -4,15 +4,15 @@
   <form (submit)="onRegisterSubmit()">
     <div class="form-group">
       <label for="formGroupExampleInput">Nome</label>
-      <input type="text" [(ngModel)]="name" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+      <input type="text" [(ngModel)]="name" name="name" class="form-control" id="formGroupExampleInput" placeholder="Nome">
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Capacidade</label>
-      <input type="number" [(ngModel)]="size" class="form-control" id="formGroupExampleInput2" placeholder="capacidade de veiculos">
+      <input type="number" [(ngModel)]="size" name="size" class="form-control" id="formGroupExampleInput2" placeholder="capacidade de veiculos">
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Quantidade de entradas</label>
-        <input type="number" [(ngModel)]="entracenumber" class="form-control" id="formGroupExampleInput2" placeholder="entradas">
+        <input type="number" [(ngModel)]="entracenumber" name="entracenumber" class="form-control" id="formGroupExampleInput2" placeholder="entradas">
       </div>
     <div class="">
         <button type="" class="btn btn-primary">Salvar</button>
