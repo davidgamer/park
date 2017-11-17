@@ -19,9 +19,14 @@ let newParking = {
   new Parking(newParking)
   .save()
   .then (Parking => {
-    console.log(newParking);
-    res.send(newParking);
-  });
+
+    res.json({success: true, msg:'Estacionamento Registrado'});
+    
+  }).catch(function (err) {
+   
+    res.json({success: false, msg:'Falha ao registrar'});
+
+   });
 
 });
 

@@ -1,3 +1,4 @@
+import { ParkingService } from './../services/parking.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -45,8 +46,7 @@ const appRoutes: Routes =[
     RegisterComponent,
     ProfileComponent,
     LoginComponent
-    
-  
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ const appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, ParkingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
